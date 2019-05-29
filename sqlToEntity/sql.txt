@@ -1,0 +1,405 @@
+-- Create table
+create table BUILDING_INFO_YUNTIAN
+(
+  auid                 VARCHAR2(32) not null,
+  building_name        VARCHAR2(2000),
+  area_id              NUMBER(6),
+  city_id              NUMBER(4),
+  province_id          NUMBER(3),
+  area_name            VARCHAR2(30),
+  city_name            VARCHAR2(30),
+  province_name        VARCHAR2(30),
+  latitude             FLOAT,
+  longitude            FLOAT,
+  map_latitude         FLOAT,
+  map_longitude        FLOAT,
+  grid_id              NUMBER(15),
+  wy_tel               VARCHAR2(50),
+  wy_person            VARCHAR2(50),
+  comp_name            VARCHAR2(100),
+  agent_pesron         VARCHAR2(50),
+  agent_tel            VARCHAR2(50),
+  building_use         VARCHAR2(30),
+  floors               NUMBER(3),
+  building_addr        VARCHAR2(100),
+  bulider              VARCHAR2(100),
+  vindicator           VARCHAR2(100),
+  last_uptime          DATE default sysdate,
+  last_upuser          VARCHAR2(32),
+  isw_cover            NUMBER(1),
+  isg_cover            NUMBER(1),
+  building_amap        VARCHAR2(250),
+  building_fmap        VARCHAR2(250),
+  plan_id              VARCHAR2(200),
+  psite_period         VARCHAR2(80),
+  psite_name           VARCHAR2(80),
+  psite_build_sum      VARCHAR2(80),
+  building_status      NUMBER(2),
+  desin_factory        VARCHAR2(50),
+  remark               VARCHAR2(100),
+  poll_level           NUMBER(1),
+  src_build            VARCHAR2(100),
+  w_poll_level         VARCHAR2(10),
+  imp_date             DATE,
+  w_in_level           VARCHAR2(10),
+  w_poll_score         NUMBER(3),
+  w_in_date            DATE,
+  is_poll              NUMBER(1),
+  g_poll_level         VARCHAR2(10),
+  g_in_level           VARCHAR2(10),
+  g_poll_score         NUMBER(3),
+  g_in_date            DATE,
+  w_signal_lev         NUMBER(2),
+  g_signal_lev         NUMBER(2),
+  dev_2gsum            NUMBER(8),
+  dev_3gsum            NUMBER(8),
+  dev_tran_sum         NUMBER(8),
+  dev_sum              NUMBER(8),
+  w_wsn                VARCHAR2(200),
+  w_bbs                VARCHAR2(400),
+  w_site_id            VARCHAR2(100),
+  w_rf                 VARCHAR2(100),
+  w_is_ctrl            NUMBER(1),
+  g_is_ctrl            NUMBER(1),
+  g_wsn                VARCHAR2(200),
+  g_bts                VARCHAR2(500),
+  g_site_id            VARCHAR2(100),
+  g_rf                 VARCHAR2(100),
+  build_id             VARCHAR2(200),
+  poll_cid             VARCHAR2(200),
+  poll_nid             NUMBER,
+  amap_nodeid          NUMBER(3),
+  fmap_nodeid          NUMBER(3),
+  servey_build_id      VARCHAR2(32),
+  tdd_bts              VARCHAR2(200),
+  tdd_in_date          DATE,
+  tdd_in_level         VARCHAR2(10),
+  tdd_is_ctrl          NUMBER,
+  tdd_poll_level       VARCHAR2(10),
+  tdd_poll_score       NUMBER,
+  tdd_rf               VARCHAR2(100),
+  tdd_signal_lev       NUMBER,
+  tdd_site_id          VARCHAR2(100),
+  tdd_wsn              VARCHAR2(200),
+  fdd_bts              VARCHAR2(200),
+  fdd_in_date          DATE,
+  fdd_in_level         VARCHAR2(10),
+  fdd_is_ctrl          NUMBER,
+  fdd_poll_level       VARCHAR2(10),
+  fdd_poll_score       NUMBER,
+  fdd_rf               VARCHAR2(100),
+  fdd_signal_lev       NUMBER,
+  fdd_site_id          VARCHAR2(100),
+  fdd_wsn              VARCHAR2(200),
+  isf_cover            NUMBER(1) default 0,
+  ist_cover            NUMBER(1) default 0,
+  dev_4gsum            NUMBER(8),
+  ssmarketgrid         VARCHAR2(100),
+  network_state        NUMBER(1),
+  branch               VARCHAR2(50),
+  exp_on_floor_cnt     NUMBER,
+  exp_under_floor_cnt  NUMBER,
+  exp_under_park_cnt   NUMBER,
+  exp_elevator_cnt     NUMBER,
+  sys_project          VARCHAR2(100),
+  sys_project_num      VARCHAR2(50),
+  design_require       VARCHAR2(500),
+  act_on_floor_cnt     NUMBER,
+  act_under_floor_cnt  NUMBER,
+  act_under_park_cnt   NUMBER,
+  act_elevator_cnt     NUMBER,
+  exp_w_cover          VARCHAR2(100),
+  act_w_cover          VARCHAR2(100),
+  exp_g_cover          VARCHAR2(100),
+  w_carrier_cnt        NUMBER,
+  g_carrier_cnt        NUMBER,
+  topol_graph          VARCHAR2(250),
+  topol_node_id        NUMBER,
+  act_g_cover          VARCHAR2(100),
+  build_project_id     NUMBER,
+  build_project_name   VARCHAR2(100),
+  province_scenceid    VARCHAR2(32),
+  createdtime          DATE,
+  jt_area_name         VARCHAR2(100),
+  jt_city_name         VARCHAR2(100),
+  lastupdatetime       DATE,
+  build_idunicom       VARCHAR2(200),
+  jt_buildingid        VARCHAR2(32),
+  w_wsnunicom          VARCHAR2(100),
+  g_wsnunicom          VARCHAR2(100),
+  need_syncdata        NUMBER default 1,
+  isfdd_cover          NUMBER(1),
+  istdd_cover          NUMBER(1),
+  exp_tdd_cover        VARCHAR2(100),
+  exp_fdd_cover        VARCHAR2(100),
+  fdd_bbs              VARCHAR2(500),
+  tdd_bbs              VARCHAR2(500),
+  operation_company    NUMBER default 1,
+  istdscdma_cover      NUMBER(1),
+  tdscdma_wsn          VARCHAR2(200),
+  tdscdma_bbs          VARCHAR2(500),
+  iscdma_cover         NUMBER(1),
+  cdma_wsn             VARCHAR2(200),
+  cdma_bbs             VARCHAR2(500),
+  iscdmaev_cover       NUMBER(1),
+  cdmaev_wsn           VARCHAR2(200),
+  cdmaev_bbs           VARCHAR2(500),
+  gsm_status           NUMBER(2),
+  wcdma_status         NUMBER(2),
+  tdd_status           NUMBER(2),
+  fdd_status           NUMBER(2),
+  tietabuild           NUMBER(2),
+  indoordesc           VARCHAR2(300),
+  design_overlay_count NUMBER(3),
+  belong_grid          VARCHAR2(50),
+  grid_type            NUMBER(2),
+  voyo_grid            VARCHAR2(100),
+  v_grid_type          NUMBER(2),
+  building_structure   NUMBER(2),
+  building_importance  NUMBER(2),
+  mobile_cell          NUMBER(1),
+  telecom_cell         NUMBER(1),
+  building_class       NUMBER(2),
+  yt_auid              VARCHAR2(36),
+  building_prop        NUMBER(2),
+  building_type        NUMBER(1)
+)
+tablespace CTUNI_PUB_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 8K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column BUILDING_INFO_YUNTIAN.auid
+  is '[1]唯一标识 [2]楼层唯一标识 [3]用户唯一标识ID [4]终端IMEI、DI号 [5]终端模型ID [6]CQT点唯一编号 [7]终端模型ID [8]log对应的唯一ID，对于任意一个log该ID唯一 [9]主键';
+comment on column BUILDING_INFO_YUNTIAN.building_name
+  is '楼宇名称';
+comment on column BUILDING_INFO_YUNTIAN.area_id
+  is '[1]区域编号 [2]所属区县编号 [3]市县区编号';
+comment on column BUILDING_INFO_YUNTIAN.city_id
+  is '[1]区域编号 [2]所属区县编号 [3]市县区编号';
+comment on column BUILDING_INFO_YUNTIAN.province_id
+  is '行政省编号';
+comment on column BUILDING_INFO_YUNTIAN.area_name
+  is '[1]小区名称 [2]区域名称 [3]区县名称';
+comment on column BUILDING_INFO_YUNTIAN.city_name
+  is '城市名称';
+comment on column BUILDING_INFO_YUNTIAN.province_name
+  is '省名称';
+comment on column BUILDING_INFO_YUNTIAN.latitude
+  is '[1]纬度 [2]LOG测试开始的纬度 [3]终端位置（纬度） [4]事件发生的地点纬度 [5]经度';
+comment on column BUILDING_INFO_YUNTIAN.longitude
+  is '[1]经度 [2]LOG测试开始的经度 [3]终端位置（经度） [4]事件发生的地点经度 [5]纬度';
+comment on column BUILDING_INFO_YUNTIAN.map_latitude
+  is '[1]用于地图显示的纬度 [2]楼宇在地图呈现纬度';
+comment on column BUILDING_INFO_YUNTIAN.map_longitude
+  is '[1]地图经度 用于地图显示的经度 [2]楼宇在地图呈现经度';
+comment on column BUILDING_INFO_YUNTIAN.grid_id
+  is '[1]栅格号 [2]栅格ID [3] 楼宇栅格号 [4]矩形框的编号 [5]GIS_COUNTYRECT表中矩形框的编号  [6]GIS_PROVINCERECT表中矩形框的编号';
+comment on column BUILDING_INFO_YUNTIAN.wy_tel
+  is '物业联系电话';
+comment on column BUILDING_INFO_YUNTIAN.wy_person
+  is '物业联系人';
+comment on column BUILDING_INFO_YUNTIAN.comp_name
+  is '[1]公司名称 [2]归属公司名称 [3]物业公司名称';
+comment on column BUILDING_INFO_YUNTIAN.agent_pesron
+  is '代维联系人';
+comment on column BUILDING_INFO_YUNTIAN.agent_tel
+  is '代维联系电话';
+comment on column BUILDING_INFO_YUNTIAN.building_use
+  is '[1]楼宇用途（暂定为8类：VIP类，医疗类，教育类，文体类，居民住宅类，商业类，交通枢纽类，政府机关类）[2]建筑物用途明细';
+comment on column BUILDING_INFO_YUNTIAN.floors
+  is '[1]测试场景类型:1全部2 楼层 3电梯 4地停 [2]楼层数 [3]楼层';
+comment on column BUILDING_INFO_YUNTIAN.building_addr
+  is '楼宇详细地址';
+comment on column BUILDING_INFO_YUNTIAN.bulider
+  is '室分建设厂家';
+comment on column BUILDING_INFO_YUNTIAN.vindicator
+  is '室分维护厂家';
+comment on column BUILDING_INFO_YUNTIAN.last_uptime
+  is '最后更新时间（系统自动更新）';
+comment on column BUILDING_INFO_YUNTIAN.last_upuser
+  is '最后更新用户（系统自动更新）';
+comment on column BUILDING_INFO_YUNTIAN.isw_cover
+  is '1]是否W网覆盖 [2]是否有WCDMA室分覆盖（是1/否0） [3]是否是G 网覆盖';
+comment on column BUILDING_INFO_YUNTIAN.isg_cover
+  is '[1]是否G网覆盖 [2]是否有GSM室分覆盖（是1/否0） [3]是否是W网覆盖';
+comment on column BUILDING_INFO_YUNTIAN.building_amap
+  is '楼层室分设计图纸URL地址';
+comment on column BUILDING_INFO_YUNTIAN.building_fmap
+  is '楼宇外观图URL地址';
+comment on column BUILDING_INFO_YUNTIAN.plan_id
+  is '[1]计划ID [2]计划任务书编号 [3]测试方案ID';
+comment on column BUILDING_INFO_YUNTIAN.psite_period
+  is '项目（站点）分期';
+comment on column BUILDING_INFO_YUNTIAN.psite_name
+  is '项目（站点）名称';
+comment on column BUILDING_INFO_YUNTIAN.psite_build_sum
+  is '项目（站点）内楼宇数量（X-Y，x：总素，y：本楼号，例如：3-1）';
+comment on column BUILDING_INFO_YUNTIAN.building_status
+  is '楼宇状态: 1、在建楼宇 2、已建成待测试 3、厂家测试通过4、监理测试通过 5、网建部审核通过 6、网优测试通过 7、已交资交维';
+comment on column BUILDING_INFO_YUNTIAN.desin_factory
+  is '设计厂家';
+comment on column BUILDING_INFO_YUNTIAN.remark
+  is '备注';
+comment on column BUILDING_INFO_YUNTIAN.poll_level
+  is '巡检等级';
+comment on column BUILDING_INFO_YUNTIAN.src_build
+  is '楼宇编号(原楼宇系统）';
+comment on column BUILDING_INFO_YUNTIAN.w_poll_level
+  is '楼宇巡检WCDMA质量等级字符，填写：优、良、入网、差';
+comment on column BUILDING_INFO_YUNTIAN.imp_date
+  is '楼宇导入时间时间。系统自动生成，用户无需填写';
+comment on column BUILDING_INFO_YUNTIAN.w_in_level
+  is '楼宇WCDMA入网等级字符，填写：优、良、入网';
+comment on column BUILDING_INFO_YUNTIAN.w_poll_score
+  is '楼宇巡检WCDMA综合打分数字。系统自动生成，用户无需填写';
+comment on column BUILDING_INFO_YUNTIAN.w_in_date
+  is '楼宇WCDMA入网时间';
+comment on column BUILDING_INFO_YUNTIAN.is_poll
+  is '楼宇是否巡检字符。填写：阿拉伯数字1或0。1对应巡检，0对应不巡检。';
+comment on column BUILDING_INFO_YUNTIAN.g_poll_level
+  is '楼宇巡检GSM质量等级字符，填写：优、良、入网、差';
+comment on column BUILDING_INFO_YUNTIAN.g_in_level
+  is '楼宇GSM入网等级字符，填写：优、良、入网';
+comment on column BUILDING_INFO_YUNTIAN.g_poll_score
+  is '楼宇巡检GSM综合打分数字。系统自动生成，用户无需填写';
+comment on column BUILDING_INFO_YUNTIAN.g_in_date
+  is '楼宇GSM入网时间';
+comment on column BUILDING_INFO_YUNTIAN.w_signal_lev
+  is 'WCDMA信源分级数字。必须填写以下4个数字之一：1、VIP，2、A类，3、B类，4、C类。(必填)';
+comment on column BUILDING_INFO_YUNTIAN.g_signal_lev
+  is 'GSM信源分级数字。必须填写以下4个数字之一：1、VIP，2、A类，3、B类，4、C类。(必填)';
+comment on column BUILDING_INFO_YUNTIAN.dev_2gsum
+  is '2G有源设备数量';
+comment on column BUILDING_INFO_YUNTIAN.dev_3gsum
+  is '3G有源设备数量';
+comment on column BUILDING_INFO_YUNTIAN.dev_tran_sum
+  is '传输设备数量';
+comment on column BUILDING_INFO_YUNTIAN.dev_sum
+  is '有源设备数量合计';
+comment on column BUILDING_INFO_YUNTIAN.w_wsn
+  is 'WCDMA室分编号WSN字符， 不限制字符数，分号进行作为，分隔多个室分编号WSN。无信息填写0;(必填)';
+comment on column BUILDING_INFO_YUNTIAN.w_bbs
+  is 'WCDMA信源/施主基站站名（BBU）字符，多个站名之间以 ;分号分隔';
+comment on column BUILDING_INFO_YUNTIAN.w_site_id
+  is 'WCDMA信源/施主基站型号字符。多个型号之间以 ;分号分隔';
+comment on column BUILDING_INFO_YUNTIAN.w_rf
+  is 'WCDMA信源射频单元型号字符。多个型号之间以 ;分号分隔。';
+comment on column BUILDING_INFO_YUNTIAN.w_is_ctrl
+  is 'WCDMA是否经建设管控流程.填写：阿拉伯数字1或0。1对应是，0对应否。(必填)';
+comment on column BUILDING_INFO_YUNTIAN.g_is_ctrl
+  is '[1]GSM是否经建设管控流程.填写：阿拉伯数字1或0。1对应是，0对应否。(必填) [2]楼宇巡检GSM质量等级字符，填写：优、良、入网、差';
+comment on column BUILDING_INFO_YUNTIAN.g_wsn
+  is '[1]GSM是否经建设管控流程.填写：阿拉伯数字1或0。1对应是，0对应否。(必填) [2]GSM室分编号WSN字符， 不限制字符数，分号进行作为，分隔多个室分编号WSN。无信息填写0;(必填) [3]G小区LAC/CI';
+comment on column BUILDING_INFO_YUNTIAN.g_bts
+  is '[1]GSM室分编号WSN字符， 不限制字符数，分号进行作为，分隔多个室分编号WSN。无信息填写0;(必填) [2]GSM信源/施主基站站名字符，多个站名之间以 ; 分号分隔';
+comment on column BUILDING_INFO_YUNTIAN.g_site_id
+  is 'GSM信源/施主基站站名字符，多个站名之间以 ;分号分隔。';
+comment on column BUILDING_INFO_YUNTIAN.g_rf
+  is '[1]GSM信源/施主基站型号 字符。多个型号之间以 ;分号分隔。 [2]GSM信源射频单元型号 字符。多个型号之间以 ; 分号分隔。';
+comment on column BUILDING_INFO_YUNTIAN.build_id
+  is '[1]楼宇编码 [2]新增楼宇编号15位';
+comment on column BUILDING_INFO_YUNTIAN.poll_cid
+  is '[1]GSM信源射频单元型号 字符。多个型号之间以 ;分号分隔。 [2]测试点场景 [3]全国巡检场景字符串编号';
+comment on column BUILDING_INFO_YUNTIAN.poll_nid
+  is '[1]测试点场景 [2]测试点场景编号 [3]全国巡检场景数字编号';
+comment on column BUILDING_INFO_YUNTIAN.amap_nodeid
+  is '设计图纸存储地址ID';
+comment on column BUILDING_INFO_YUNTIAN.fmap_nodeid
+  is '外观图纸存储地址ID';
+comment on column BUILDING_INFO_YUNTIAN.network_state
+  is '网络状态';
+comment on column BUILDING_INFO_YUNTIAN.branch
+  is '分公司';
+comment on column BUILDING_INFO_YUNTIAN.exp_on_floor_cnt
+  is '预期地上覆盖层数';
+comment on column BUILDING_INFO_YUNTIAN.exp_under_floor_cnt
+  is '预期地下覆盖层数（含地停）';
+comment on column BUILDING_INFO_YUNTIAN.exp_under_park_cnt
+  is '预期地停覆盖层数';
+comment on column BUILDING_INFO_YUNTIAN.exp_elevator_cnt
+  is '预期覆盖电梯数';
+comment on column BUILDING_INFO_YUNTIAN.sys_project
+  is '任务';
+comment on column BUILDING_INFO_YUNTIAN.sys_project_num
+  is '任务数量';
+comment on column BUILDING_INFO_YUNTIAN.design_require
+  is '设计要求';
+comment on column BUILDING_INFO_YUNTIAN.act_on_floor_cnt
+  is '实际地上层数';
+comment on column BUILDING_INFO_YUNTIAN.act_under_floor_cnt
+  is '预期地下覆盖层数（含地停）';
+comment on column BUILDING_INFO_YUNTIAN.act_under_park_cnt
+  is '实际地停层数';
+comment on column BUILDING_INFO_YUNTIAN.act_elevator_cnt
+  is '实际电梯数';
+comment on column BUILDING_INFO_YUNTIAN.exp_w_cover
+  is '规划W网覆盖层数';
+comment on column BUILDING_INFO_YUNTIAN.act_w_cover
+  is '实际W网覆盖层数';
+comment on column BUILDING_INFO_YUNTIAN.exp_g_cover
+  is '规划G网覆盖层数
+';
+comment on column BUILDING_INFO_YUNTIAN.w_carrier_cnt
+  is 'W网载波数量';
+comment on column BUILDING_INFO_YUNTIAN.g_carrier_cnt
+  is 'G网载波数量';
+comment on column BUILDING_INFO_YUNTIAN.topol_graph
+  is '设计图纸';
+comment on column BUILDING_INFO_YUNTIAN.topol_node_id
+  is '设计图纸id';
+comment on column BUILDING_INFO_YUNTIAN.act_g_cover
+  is '实际G网覆盖层数';
+comment on column BUILDING_INFO_YUNTIAN.build_project_id
+  is '楼宇项目ID';
+comment on column BUILDING_INFO_YUNTIAN.build_project_name
+  is '楼宇项目名称';
+comment on column BUILDING_INFO_YUNTIAN.province_scenceid
+  is '场景编号';
+comment on column BUILDING_INFO_YUNTIAN.createdtime
+  is '创建时间';
+comment on column BUILDING_INFO_YUNTIAN.lastupdatetime
+  is '上次更新时间';
+comment on column BUILDING_INFO_YUNTIAN.isfdd_cover
+  is '是否FDD覆盖';
+comment on column BUILDING_INFO_YUNTIAN.istdd_cover
+  is '是否TDD覆盖';
+comment on column BUILDING_INFO_YUNTIAN.exp_tdd_cover
+  is '规划TDD覆盖楼层';
+comment on column BUILDING_INFO_YUNTIAN.exp_fdd_cover
+  is '规划FDD覆盖楼层';
+comment on column BUILDING_INFO_YUNTIAN.fdd_bbs
+  is 'fdd站名(导入时用)';
+comment on column BUILDING_INFO_YUNTIAN.tdd_bbs
+  is 'tdd站名(导入时用)';
+comment on column BUILDING_INFO_YUNTIAN.belong_grid
+  is '所属网格';
+comment on column BUILDING_INFO_YUNTIAN.grid_type
+  is '网格类型';
+comment on column BUILDING_INFO_YUNTIAN.voyo_grid
+  is '沃优栅格编码';
+comment on column BUILDING_INFO_YUNTIAN.v_grid_type
+  is '微网格类型';
+comment on column BUILDING_INFO_YUNTIAN.building_structure
+  is '楼宇结构(开放式;半开放式;密闭式)';
+comment on column BUILDING_INFO_YUNTIAN.building_importance
+  is '楼宇重要性(I类楼宇;II类楼宇;III类楼宇)';
+comment on column BUILDING_INFO_YUNTIAN.mobile_cell
+  is '移动是否有室分(是;否)';
+comment on column BUILDING_INFO_YUNTIAN.telecom_cell
+  is '电信是否有室分(是;否)';
+comment on column BUILDING_INFO_YUNTIAN.building_class
+  is '楼宇类型  住宅楼;低层连片住宅;写字楼;办公楼;宿舍楼;宾馆酒店;商场;交通枢纽建筑;公共建筑;综合体建筑;低层连片商业建筑';
+comment on column BUILDING_INFO_YUNTIAN.yt_auid
+  is '云天原始记录id';
+comment on column BUILDING_INFO_YUNTIAN.building_prop
+  is '楼宇分类 A类;B类;住宅';
+comment on column BUILDING_INFO_YUNTIAN.building_type
+  is '[1]楼宇等级: 1 (VIP)  2 A类(重要) 3 B类（较重要） 4 C（普通） [2]所在建筑物类型归属';
