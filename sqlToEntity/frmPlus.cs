@@ -1,4 +1,5 @@
-﻿using sqlToEntity.Entitys;
+﻿using sqlToEntity.Base.Control;
+using sqlToEntity.Entitys;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,18 +7,18 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace sqlToEntity
 {
-    public partial class Form1 : Form
+    public partial class frmPlus : baseForm
     {
-        public Form1()
+        public frmPlus()
         {
             InitializeComponent();
         }
-
         private string attrName = "DataMember";
         private string attrTemplate = "[{0} ,Column(Name=\"{1}\")]";
         private string pre = "public";
@@ -25,6 +26,10 @@ namespace sqlToEntity
         private bool isUpper = true;
         private bool isAllowNull = true;
         private bool isAttr = true;
+        private StringBuilder Comment=new StringBuilder();
+
+        
+        
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,6 +38,18 @@ namespace sqlToEntity
             {
                 var result = new StringBuilder();
                 var sourceStr = this.txtSourceTxt.Text;
+
+
+                #region 处理注释
+                var ss = "Add comments to the columns";
+                var sqlField= Regex.Split(sourceStr, ss, RegexOptions.IgnoreCase);
+                var tmpStrA = Regex.Split(sqlField[0], "\n(\n", RegexOptions.IgnoreCase);
+                #endregion
+
+
+
+
+
                 var lstSourceField = sourceStr.Split('\n');
                 var lstFieldEntity = new List<FieldEntity>();
                 foreach (var item in lstSourceField)
@@ -62,7 +79,7 @@ namespace sqlToEntity
             {
                 MessageBox.Show(ex.Message);
             }
-           
+
 
         }
 
@@ -79,13 +96,7 @@ namespace sqlToEntity
                 {
                     result.AppendLine(string.Format(attrTemplate, attrName, item.FieldName));
                 }
-                var type = exchangeType(item.FieldType.ToUpper());
-                var isnull= isAllowNull?"?":"";
-                if (type.ToUpper()=="STRING") //String类型不允许设置?
-                {
-                    isnull = "";
-                }
-                result.AppendLine(string.Format("{0} {1}{4} {2} {3}", pre, type, item.FieldName, suffix,isnull));
+                result.AppendLine(string.Format("{0} {1}{4} {2} {3}", pre, exchangeType(item.FieldType.ToUpper()), item.FieldName, suffix, isAllowNull ? "?" : ""));
                 result.AppendLine();
             }
         }
@@ -107,17 +118,22 @@ namespace sqlToEntity
                 case "DATE":
                     return "DateTime";
                 case "FLOAT":
-                    return "decimal"; 
+                    return "decimal";
                 default:
                     return "String";
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+
+
+        private void frmPlus_Load(object sender, EventArgs e)
         {
             this.chkIsAllowNull.Checked = this.isAllowNull;
             this.chkIsUpper.Checked = this.isUpper;
             this.chkIsAttr.Checked = this.isAttr;
+            Comment.AppendLine(@" /// <summary>
+                                   ///{0}
+                                   /// </summary>");
         }
 
         private void chkIsAllowNull_CheckedChanged(object sender, EventArgs e)
@@ -137,12 +153,6 @@ namespace sqlToEntity
 
             var chkIsAttr = (CheckBox)sender;
             this.isAttr = chkIsAttr.Checked;
-        }
-
-        private void btnPlus_Click(object sender, EventArgs e)
-        {
-            var frm = new frmPlus();
-            frm.ShowDialog();
         }
     }
 }
